@@ -5,7 +5,12 @@ export const Main = styled.main`
   flex-direction: column;
   margin: 0 auto;
   width: 100%;
-  max-width: 1174px;
+  max-width: 116.4rem;
+  padding: 0 1rem 3.8rem;
+
+  .bottom-container {
+    margin-top: 0.9rem;
+  }
 `;
 
 export const ButtonsContainer = styled.div`
@@ -14,5 +19,5 @@ export const ButtonsContainer = styled.div`
   justify-content: center;
   width: 100%;
   gap: 1.6rem;
-  margin: 2.1rem 0 2rem;
+  margin: 1.1rem 0 2rem;
 `;

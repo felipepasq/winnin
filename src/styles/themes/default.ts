@@ -1,5 +1,5 @@
 export const defaultTheme = {
-  color: {
+  colors: {
     primary: "#6324C6",
     secondary: "#A7B0BE",
     dark_gray: "#4C5667",
@@ -10,4 +10,4 @@ export const defaultTheme = {
   fonts: {
     text: "Mulish, sans-serif",
   },
-};
+} as const;
