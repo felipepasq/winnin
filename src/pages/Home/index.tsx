@@ -1,27 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./styles";
 import Button from "../../components/Button";
-import Post from "../../components/Post";
+import { PostData } from "../../types";
+import PostList from "../../components/PostList";
+import { api } from "../../services/api";
+
 const Home: React.FC = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [posts, setPosts] = useState<PostData[]>([]);
+
+  const fetchPosts = async () => {
+    try {
+      const response = await api.getPosts("react", "new");
+      setPosts(response.data.data.children);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
   return (
     <S.Main>
       <S.ButtonsContainer>
-        <Button isActive>Hot</Button>
-        <Button isActive={false}>News</Button>
+        <Button>Hot</Button>
+        <Button>News</Button>
         <Button>Rising</Button>
       </S.ButtonsContainer>
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
+      <PostList posts={posts} />
       <div className="bottom-container">
-        <Button width="100%" isActive>
+        <Button width="100%" selected>
           + Ver mais
         </Button>
       </div>
