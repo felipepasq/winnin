@@ -7,11 +7,10 @@ export const Container = styled.div`
   margin-top: 1.2rem;
 `;
 
-export const Image = styled.div`
+export const Image = styled.img`
   width: 7.7rem;
   height: 7.7rem;
   border-radius: 0.8rem;
-  background-color: ${({ theme }) => theme.colors.dark_gray};
 `;
 
 export const PostInfo = styled.div`

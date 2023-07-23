@@ -6,12 +6,12 @@ import PostList from "../../components/PostList";
 import { api } from "../../services/api";
 
 const Home: React.FC = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [posts, setPosts] = useState<PostData[]>([]);
 
   const fetchPosts = async () => {
     try {
-      const response = await api.getPosts("react", "new");
+      const response = await api.getPosts("reactjs", "new");
       setPosts(response.data.data.children);
     } catch (error) {
       console.error(error);

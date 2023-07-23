@@ -10,7 +10,7 @@ const PostList: React.FC<PostListProps> = ({ posts }) => {
   return (
     <>
       {posts.map((post) => (
-        <Post key={post.data.id} />
+        <Post key={post.data.id} post={post} />
       ))}
     </>
   );
