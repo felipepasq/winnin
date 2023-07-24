@@ -14,6 +14,7 @@ export interface PostData {
 export interface Theme {
   colors: {
     primary: string;
+    dark_primary: string;
     secondary: string;
     dark_gray: string;
     yellow: string;

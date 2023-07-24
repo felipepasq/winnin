@@ -25,6 +25,9 @@ export const PostInfo = styled.div`
     font-size: 2rem;
     font-weight: 600;
     color: ${({ theme }) => theme.colors.black};
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   .post-time {
@@ -35,11 +38,17 @@ export const PostInfo = styled.div`
   .post-user {
     font-weight: 400;
     color: ${({ theme }) => theme.colors.primary};
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   .post-link {
     font-weight: 700;
     color: ${({ theme }) => theme.colors.black};
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   .post-time,
