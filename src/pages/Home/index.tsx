@@ -4,8 +4,10 @@ import Button from "../../components/Button";
 import { PostData, PostType } from "../../types";
 import PostList from "../../components/PostList";
 import { api } from "../../services/api";
+import { toast } from "react-toastify";
 import ToggleButton from "../../components/ToggleButton";
 import { useThemeStore } from "../../stores/themeStore";
+import { ToastContainer } from "react-toastify";
 
 const Home: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -29,6 +31,7 @@ const Home: React.FC = () => {
       setAfter(response.data.data.after);
       setPosts((prevData) => [...prevData, ...response.data.data.children]);
     } catch (error) {
+      toast.error("Algo deu errado ao buscar os posts");
       console.error(error);
     } finally {
       setIsLoading(false);
