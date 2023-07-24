@@ -20,7 +20,7 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
   };
 
   return (
-    <S.ToggleButton isactive={isOn} onClick={handleToggle}>
+    <S.ToggleButton isOn={isOn} onClick={handleToggle}>
       {isOn ? "Dark Mode" : "Light Mode"}
     </S.ToggleButton>
   );
