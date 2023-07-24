@@ -22,7 +22,7 @@ export const PostInfo = styled.div`
   white-space: nowrap;
 
   .post-title {
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 600;
     color: ${({ theme }) => theme.colors.black};
   }
@@ -54,6 +54,6 @@ export const PostInfo = styled.div`
   .post-time,
   .post-user,
   .post-link {
-    font-size: 16px;
+    font-size: 1.6rem;
   }
 `;

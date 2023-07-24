@@ -62,13 +62,18 @@ const Home: React.FC = () => {
           Rising
         </Button>
       </S.ButtonsContainer>
-      <PostList posts={posts} isLoading={isLoading} />
-
-      <div className="bottom-container">
-        <Button width="100%" selected onClick={() => fetchPosts()}>
-          {buttonText}
-        </Button>
-      </div>
+      {!isLoading && posts.length === 0 ? (
+        <h2>Nenhum post encontrado</h2>
+      ) : (
+        <>
+          <PostList posts={posts} isLoading={isLoading} />
+          <div className="bottom-container">
+            <Button width="100%" selected onClick={() => fetchPosts()}>
+              {buttonText}
+            </Button>
+          </div>
+        </>
+      )}
     </S.Main>
   );
 };
