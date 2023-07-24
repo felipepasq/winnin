@@ -26,6 +26,10 @@ const Home: React.FC = () => {
   const fetchPosts = async () => {
     setButtonText("Carregando ...");
     try {
+      if (after === null) {
+        return;
+      }
+
       const response = await api.getPosts("reactjs", postType, after);
       setAfter(response.data.data.after);
       setPosts((prevData) => [...prevData, ...response.data.data.children]);
@@ -93,7 +97,7 @@ const Home: React.FC = () => {
           />
         </S.ToggleContainer>
         <PostList posts={posts} isLoading={isLoading} />
-        {shouldRenderMoreButton && (
+        {shouldRenderMoreButton && after !== null && (
           <div className="bottom-container">
             <Button width="100%" selected onClick={() => fetchPosts()}>
               {buttonText}
