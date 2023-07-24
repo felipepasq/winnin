@@ -13,9 +13,10 @@ const Button: React.FC<ButtonProps> = ({
   width = "20.2rem",
   selected = false,
   children,
+  ...rest
 }) => {
   return (
-    <S.Button height={height} width={width} selected={selected}>
+    <S.Button height={height} width={width} selected={selected} {...rest}>
       {children}
     </S.Button>
   );

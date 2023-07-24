@@ -10,3 +10,5 @@ export interface PostData {
   data: Post;
   kind: string;
 }
+
+export type PostType = "rising" | "hot" | "new";
