@@ -11,4 +11,18 @@ export interface PostData {
   kind: string;
 }
 
+export interface Theme {
+  colors: {
+    primary: string;
+    secondary: string;
+    dark_gray: string;
+    yellow: string;
+    white: string;
+    black: string;
+  };
+  fonts: {
+    text: string;
+  };
+}
+
 export type PostType = "rising" | "hot" | "new";

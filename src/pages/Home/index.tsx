@@ -4,12 +4,16 @@ import Button from "../../components/Button";
 import { PostData, PostType } from "../../types";
 import PostList from "../../components/PostList";
 import { api } from "../../services/api";
+import ToggleButton from "../../components/ToggleButton";
+import { useThemeStore } from "../../stores/themeStore";
 
 const Home: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [posts, setPosts] = useState<PostData[]>([]);
   const [after, setAfter] = useState("");
   const [buttonText, setButtonText] = useState("+ Ver mais");
+  const theme = useThemeStore((state) => state.theme);
+  const selectTheme = useThemeStore((state) => state.selectTheme);
   const [postType, setPostType] = useState<PostType>(() => {
     const storagedPostType = localStorage.getItem("@Winnin:post");
     if (storagedPostType) {
@@ -39,6 +43,10 @@ const Home: React.FC = () => {
     setPostType(value);
   };
 
+  const onToggle = (isOn: boolean) => {
+    selectTheme(isOn ? "dark" : "light");
+  };
+
   useEffect(() => {
     fetchPosts();
 
@@ -50,37 +58,44 @@ const Home: React.FC = () => {
   const shouldRenderMoreButton = !isLoading || posts.length > 0;
 
   return (
-    <S.Main>
-      <S.ButtonsContainer>
-        <Button
-          onClick={() => handleClick("hot")}
-          selected={postType === "hot"}
-        >
-          Hot
-        </Button>
-        <Button
-          onClick={() => handleClick("new")}
-          selected={postType === "new"}
-        >
-          News
-        </Button>
-        <Button
-          onClick={() => handleClick("rising")}
-          selected={postType === "rising"}
-        >
-          Rising
-        </Button>
-      </S.ButtonsContainer>
-
-      <PostList posts={posts} isLoading={isLoading} />
-      {shouldRenderMoreButton && (
-        <div className="bottom-container">
-          <Button width="100%" selected onClick={() => fetchPosts()}>
-            {buttonText}
+    <S.Wrapper>
+      <S.Main>
+        <S.ButtonsContainer>
+          <Button
+            onClick={() => handleClick("hot")}
+            selected={postType === "hot"}
+          >
+            Hot
           </Button>
-        </div>
-      )}
-    </S.Main>
+          <Button
+            onClick={() => handleClick("new")}
+            selected={postType === "new"}
+          >
+            News
+          </Button>
+          <Button
+            onClick={() => handleClick("rising")}
+            selected={postType === "rising"}
+          >
+            Rising
+          </Button>
+        </S.ButtonsContainer>
+        <S.ToggleContainer>
+          <ToggleButton
+            onToggle={onToggle}
+            initialIsOn={theme === "light" ? false : true}
+          />
+        </S.ToggleContainer>
+        <PostList posts={posts} isLoading={isLoading} />
+        {shouldRenderMoreButton && (
+          <div className="bottom-container">
+            <Button width="100%" selected onClick={() => fetchPosts()}>
+              {buttonText}
+            </Button>
+          </div>
+        )}
+      </S.Main>
+    </S.Wrapper>
   );
 };
 
