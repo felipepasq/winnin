@@ -17,9 +17,6 @@ export const Main = styled.main`
 
   .bottom-container {
     margin-top: 0.9rem;
-    button:hover {
-      background-color: ${({ theme }) => theme.colors.dark_primary};
-    }
   }
 `;
 
@@ -30,10 +27,6 @@ export const ButtonsContainer = styled.div`
   width: 100%;
   gap: 1.6rem;
   margin: 1.1rem 0 2rem;
-
-  button:hover {
-    background-color: ${({ theme }) => theme.colors.dark_gray};
-  }
 `;
 
 export const ToggleContainer = styled.div`

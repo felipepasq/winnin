@@ -15,4 +15,9 @@ export const Button = styled.button<ButtonProps>`
     selected ? theme.colors.primary : theme.colors.secondary};
   font-size: 2rem;
   font-weight: 600;
+
+  &:hover {
+    background-color: ${({ selected, theme }) =>
+      selected ? theme.colors.dark_primary : theme.colors.dark_gray};
+  }
 `;
