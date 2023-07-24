@@ -37,6 +37,10 @@ const Home: React.FC = () => {
   };
 
   const handleClick = (value: PostType) => {
+    if (postType === value) {
+      return;
+    }
+
     localStorage.setItem("@Winnin:post", JSON.stringify(value));
     setAfter("");
     setIsLoading(true);
