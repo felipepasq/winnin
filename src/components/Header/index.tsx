@@ -4,8 +4,10 @@ import * as S from "./styles";
 const Header: React.FC = () => {
   return (
     <S.Header>
-      <p>REACT</p>
-      <p className="yellow">JS</p>
+      <a href="/">
+        <p>REACT</p>
+        <p className="yellow">JS</p>
+      </a>
     </S.Header>
   );
 };

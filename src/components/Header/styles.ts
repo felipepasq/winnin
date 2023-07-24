@@ -14,4 +14,8 @@ export const Header = styled.header`
   .yellow {
     color: ${({ theme }) => theme.colors.yellow};
   }
+
+  a {
+    display: flex;
+  }
 `;
