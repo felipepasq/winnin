@@ -19,8 +19,6 @@ const PostList: React.FC<PostListProps> = ({ posts, isLoading }) => {
       {!isLoading &&
         posts.length > 0 &&
         posts.map((post) => <Post key={post.data.id} post={post} />)}
-
-      {!isLoading && posts.length === 0 && <h2>Nenhum post encontrado</h2>}
     </>
   );
 };
