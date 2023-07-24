@@ -1,6 +1,5 @@
 import axios from "axios";
-import { PostData } from "../types";
-import { PostType } from "../types";
+import { PostData, PostType } from "../types";
 
 const API_ENDPOINT = "https://www.reddit.com/r";
 const instance = axios.create({
