@@ -2,6 +2,7 @@ import React from "react";
 import { PostData } from "../../types";
 import Post from "../Post";
 import PostSkeleton from "../PostSkeleton";
+import * as S from "./styles";
 
 interface PostListProps {
   posts: PostData[];
@@ -21,7 +22,7 @@ const PostList: React.FC<PostListProps> = ({ posts, isLoading }) => {
       ) : posts.length > 0 ? (
         renderPosts()
       ) : (
-        <h2>Nenhum post encontrado</h2>
+        <S.NotFound>Nenhum post encontrado</S.NotFound>
       )}
     </>
   );

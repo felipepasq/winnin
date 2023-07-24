@@ -28,11 +28,11 @@ const Home: React.FC = () => {
       const response = await api.getPosts("reactjs", postType, after);
       setAfter(response.data.data.after);
       setPosts((prevData) => [...prevData, ...response.data.data.children]);
-      setButtonText("+ Ver mais");
     } catch (error) {
       console.error(error);
     } finally {
       setIsLoading(false);
+      setButtonText("+ Ver mais");
     }
   };
 
@@ -59,7 +59,7 @@ const Home: React.FC = () => {
     };
   }, [postType]);
 
-  const shouldRenderMoreButton = !isLoading || posts.length > 0;
+  const shouldRenderMoreButton = isLoading || posts.length !== 0;
 
   return (
     <S.Wrapper>
