@@ -7,7 +7,6 @@ import { api } from "../../services/api";
 import { toast } from "react-toastify";
 import ToggleButton from "../../components/ToggleButton";
 import { useThemeStore } from "../../stores/themeStore";
-import { ToastContainer } from "react-toastify";
 
 const Home: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
