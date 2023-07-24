@@ -5,6 +5,7 @@ export const Container = styled.div`
   flex-direction: row;
   gap: 1.3rem;
   margin-top: 1.2rem;
+  overflow: hidden;
 `;
 
 export const Image = styled.img`
@@ -16,6 +17,9 @@ export const Image = styled.img`
 export const PostInfo = styled.div`
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 
   .post-title {
     font-size: 20px;
@@ -32,9 +36,19 @@ export const PostInfo = styled.div`
     font-weight: 400;
     color: ${({ theme }) => theme.colors.primary};
   }
+
   .post-link {
     font-weight: 700;
     color: ${({ theme }) => theme.colors.black};
+  }
+
+  .post-time,
+  .post-user,
+  .post-link,
+  .post-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .post-time,

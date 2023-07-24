@@ -28,6 +28,7 @@ const Home: React.FC = () => {
 
   const handleClick = (value: PostType) => {
     setAfter("");
+    setIsLoading(true);
     setPostType(value);
   };
 
@@ -61,7 +62,8 @@ const Home: React.FC = () => {
           Rising
         </Button>
       </S.ButtonsContainer>
-      <PostList posts={posts} />
+      <PostList posts={posts} isLoading={isLoading} />
+
       <div className="bottom-container">
         <Button width="100%" selected onClick={() => fetchPosts()}>
           {buttonText}

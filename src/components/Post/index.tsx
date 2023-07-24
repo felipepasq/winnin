@@ -18,7 +18,7 @@ const Post: React.FC<PostProps> = ({ post }) => {
       <S.Container>
         <S.Image src="https://placehold.co/77/A7B0BE/000000?text=Post&font=mulish" />
         <S.PostInfo>
-          <a className="post-title" href={url} target="_blank">
+          <a className="post-title" href={url} target="_blank" title={title}>
             {title}
           </a>
           <p className="post-time">
