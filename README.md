@@ -23,3 +23,7 @@ Este projeto foi desenvolvido com as seguintes tecnologias:
 ## Testes
 
 Para executar os testes, execute o comando `yarn test`. Isso irá rodar os testes unitários utilizando o Jest e o React Testing Library.
+
+## Observações
+
+A rota da categoria hot retorna um elemento a mais por conta do reddit fixar um post principal. No entanto na implementação a chamada está sendo feita de forma correta.
