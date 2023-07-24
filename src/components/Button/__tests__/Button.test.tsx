@@ -4,7 +4,7 @@ import Button from "..";
 
 const TEXT_MOCK = "TEXT_MOCK";
 
-describe("Test Button", () => {
+describe("Button", () => {
   it("should render", () => {
     render(<Button>{TEXT_MOCK}</Button>);
     expect(screen.getByText(TEXT_MOCK)).toBeDefined();

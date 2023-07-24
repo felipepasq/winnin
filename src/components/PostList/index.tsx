@@ -9,16 +9,20 @@ interface PostListProps {
 }
 
 const PostList: React.FC<PostListProps> = ({ posts, isLoading }) => {
+  const renderPosts = () =>
+    posts.map((post) => <Post key={post.data.id} post={post} />);
+  const renderLoadingSkeleton = () =>
+    Array.from({ length: 10 }).map((_, index) => <PostSkeleton key={index} />);
+
   return (
     <>
-      {isLoading &&
-        Array.from({ length: 10 }).map((_, index) => (
-          <PostSkeleton key={index} />
-        ))}
-
-      {!isLoading &&
-        posts.length > 0 &&
-        posts.map((post) => <Post key={post.data.id} post={post} />)}
+      {isLoading ? (
+        renderLoadingSkeleton()
+      ) : posts.length > 0 ? (
+        renderPosts()
+      ) : (
+        <h2>Nenhum post encontrado</h2>
+      )}
     </>
   );
 };

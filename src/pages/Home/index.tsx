@@ -47,6 +47,8 @@ const Home: React.FC = () => {
     };
   }, [postType]);
 
+  const shouldRenderMoreButton = !isLoading || posts.length > 0;
+
   return (
     <S.Main>
       <S.ButtonsContainer>
@@ -69,17 +71,14 @@ const Home: React.FC = () => {
           Rising
         </Button>
       </S.ButtonsContainer>
-      {!isLoading && posts.length === 0 ? (
-        <h2>Nenhum post encontrado</h2>
-      ) : (
-        <>
-          <PostList posts={posts} isLoading={isLoading} />
-          <div className="bottom-container">
-            <Button width="100%" selected onClick={() => fetchPosts()}>
-              {buttonText}
-            </Button>
-          </div>
-        </>
+
+      <PostList posts={posts} isLoading={isLoading} />
+      {shouldRenderMoreButton && (
+        <div className="bottom-container">
+          <Button width="100%" selected onClick={() => fetchPosts()}>
+            {buttonText}
+          </Button>
+        </div>
       )}
     </S.Main>
   );

@@ -6,7 +6,7 @@ const PostSkeleton: React.FC = () => {
   return (
     <>
       <Divider margin="1rem 0" />
-      <S.Skeleton>
+      <S.Skeleton data-testid="post-skeleton">
         <div className="skeleton-image" />
         <div className="skeleton-post-info">
           <LoadingStripe height="2.5rem" width="12.9rem" />
