@@ -10,7 +10,13 @@ const Home: React.FC = () => {
   const [posts, setPosts] = useState<PostData[]>([]);
   const [after, setAfter] = useState("");
   const [buttonText, setButtonText] = useState("+ Ver mais");
-  const [postType, setPostType] = useState<PostType>("hot");
+  const [postType, setPostType] = useState<PostType>(() => {
+    const storagedPostType = localStorage.getItem("@Winnin:post");
+    if (storagedPostType) {
+      return JSON.parse(storagedPostType);
+    }
+    return "hot";
+  });
 
   const fetchPosts = async () => {
     setButtonText("Carregando ...");
@@ -27,6 +33,7 @@ const Home: React.FC = () => {
   };
 
   const handleClick = (value: PostType) => {
+    localStorage.setItem("@Winnin:post", JSON.stringify(value));
     setAfter("");
     setIsLoading(true);
     setPostType(value);
